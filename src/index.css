@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-primary: 222 83% 4%;
+  --primary: 327 89% 49%;
+  --accent: 183 98% 50%;
+  --card: 222 47% 11%;
+  --success: 142 76% 36%;
+  --warning: 45 93% 47%;
+  --error: 0 84% 60%;
+}
+
+@layer base {
+  * {
+    @apply border-slate-700;
+  }
+  
+  body {
+    @apply bg-[hsl(var(--bg-primary))] text-slate-100 font-['Poppins'];
+  }
+}
+
+@layer components {
+  .neon-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  
+  .neon-glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+  
+  .card-elevated {
+    @apply bg-[hsl(var(--card))] border border-slate-800 rounded-lg;
+    box-shadow: 0 8px 32px hsl(0 0% 0% / 0.3);
+  }
+  
+  .btn-primary {
+    @apply bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/90 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+  }
+  
+  .btn-primary:hover {
+    @apply neon-glow transform scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 text-slate-900 font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+  }
+  
+  .btn-secondary:hover {
+    @apply neon-glow-cyan transform scale-105;
+  }
+  
+  .input-field {
+    @apply bg-[hsl(var(--card))] border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:border-transparent transition-all duration-300;
+  }
+  
+  .activity-card {
+    @apply card-elevated p-6 hover:border-[hsl(var(--primary))] transition-all duration-500 cursor-pointer;
+  }
+  
+  .activity-card:hover {
+    @apply neon-glow transform scale-105;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--bg-primary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--card));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
